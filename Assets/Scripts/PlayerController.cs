@@ -1,5 +1,6 @@
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,13 +12,19 @@ public class PlayerController : MonoBehaviour
     public float health = 10f;
     private SpriteRenderer spriteRenderer;
 
+    public GameObject flashLight;
+
     private float timer;
     private float timeDuration = 5f;
-    
+
+    public Light2D lightFlash;
+    public PolygonCollider2D polyCollFlash;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
          spriteRenderer = GetComponent<SpriteRenderer>();
+
+        polyCollFlash.enabled = false;
     }
     
     public void takeDamage()
@@ -37,7 +44,14 @@ public class PlayerController : MonoBehaviour
     {// Move the player left and right
         horizontalInput = Input.GetAxisRaw("Horizontal");
         transform.Translate(Vector3.right * speed * horizontalInput * Time.deltaTime);
-    {
+    
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f;
+
+        Vector3 direction = (mousePosition - flashLight.transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        flashLight.transform.rotation = Quaternion.Euler(0,0, angle - 90);
+
         if (horizontalInput == 1)
         {
         isFacingRight = true;
@@ -47,11 +61,22 @@ public class PlayerController : MonoBehaviour
             isFacingRight = false;
         }
         Flip();
-    }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+        lightFlash.intensity = 1f;
+        polyCollFlash.enabled = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+        lightFlash.intensity = 0f;
+        polyCollFlash.enabled = false;
+        }
+
+    
        timer += Time.deltaTime;
        if (timer == 0)
        Debug.Log("timerOff");
-       
+    
 
         // Make the player jump
         if (canJump == true && Input.GetKeyDown(KeyCode.Space))
