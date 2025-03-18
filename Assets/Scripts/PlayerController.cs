@@ -29,10 +29,13 @@ public class PlayerController : MonoBehaviour
     
     public void takeDamage()
     {
-        Debug.Log("ouch");
+        
         if (timer <= timeDuration)
+        {
+            Debug.Log("ouch");
     health -= 2.0f;
     timer = 0f;
+        }
     if (health <= 0)
     die();
     }
@@ -74,8 +77,8 @@ public class PlayerController : MonoBehaviour
 
     
        timer += Time.deltaTime;
-       if (timer == 0)
-       Debug.Log("timerOff");
+       
+       
     
 
         // Make the player jump

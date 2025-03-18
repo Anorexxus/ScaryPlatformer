@@ -1,16 +1,18 @@
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyDarkScript : MonoBehaviour
 {
     private float PosX;
     private float PosY;
-    private bool? see;
+    public bool? see;
     
     public float speed;
     
     public CircleCollider2D detector;
     public GameObject target;
+    public CircleCollider2D runDetector;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,9 +32,9 @@ public class EnemyDarkScript : MonoBehaviour
         if (see == false)
        runAway();
 
-        if (see == null)
-        Debug.Log("IDLE");
-
+       
+        
+        
     }
     void Follow()
     {
@@ -46,19 +48,20 @@ public class EnemyDarkScript : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        
+        
         if (collision.CompareTag("Player"))
         { 
         target = collision.gameObject;
         see = true;
-
         }
-        if (collision.CompareTag("Flash"))
-        {
-        target = collision.gameObject;
-        see = false;
-        }
+        
+       
+        
+        
     
     }
+   
     private void OnTriggerExit2D(Collider2D collision)
     {
        see = null;

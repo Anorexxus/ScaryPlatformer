@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    private float speed = 3f;
+      private float speed = 3f;
     private bool turnRight;
     private bool shouldMove = false;
     private bool flipSprite;
     public GameObject player;
+    public GameObject flashLight;
 
     [SerializeField]private SpriteRenderer spriteRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,7 +19,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    if (shouldMove)
+         if (shouldMove)
     {
        if (turnRight)
        transform.Translate(Vector3.right * speed * Time.deltaTime);
@@ -47,17 +48,23 @@ public class EnemyScript : MonoBehaviour
         }
         shouldMove = true;
         }
-        if (collision.CompareTag("Damage")) 
+        
+        if (collision.CompareTag("Flash"))
         {
-        PlayerController playerController = collision.GetComponent<PlayerController>();
-        if (playerController !=null)
+        Vector3 detectedPosition = flashLight.transform.position;
+        Vector3 enemyPosition = transform.position;
+        
+        if (detectedPosition.x > enemyPosition.x)
         {
-            playerController.takeDamage();
+            turnRight = true;
+            FlipRight();
         }
         else
         {
-            Debug.LogError("PlayerController component not found on the player GameObject.");
+           turnRight = false;
+           FlipLeft();
         }
+        shouldMove = true;
         }
     }
     private void FlipLeft()
