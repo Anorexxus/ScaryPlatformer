@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class runScript : MonoBehaviour
 {
-    [SerializeField]private EnemyDarkScript Nigger;
-    [SerializeField]private PlayerController White;
+    [SerializeField]private EnemyDarkScript EnemyDark;
+    [SerializeField]private PlayerController Player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,8 +20,8 @@ public class runScript : MonoBehaviour
     {
         if (other.CompareTag("Flash"))
         {
-        Nigger.target = other.gameObject;
-        Nigger.see = false;
+        EnemyDark.target = other.gameObject;
+        EnemyDark.see = false;
         Debug.Log("Nigger not see");
         }
      
@@ -30,14 +30,14 @@ public class runScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {   
-         White.takeDamage();
+         Player.takeDamage();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-       Nigger.see = null;
+       EnemyDark.see = null;
        Debug.Log("Left");
         }
     }

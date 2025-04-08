@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class RoomScript : MonoBehaviour
 {
+    public GameObject player;
+    public Transform start;
     public List<RoomNumber> rooms;
     private int currentRoomID = 1;
 
@@ -15,10 +17,7 @@ public class RoomScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            SwitchRoom();
-        }
+     
     }
 
     public void SwitchRoom()
@@ -34,5 +33,6 @@ public class RoomScript : MonoBehaviour
             nextRoom.gameObject.SetActive(true);
             currentRoomID = nextRoomID;
         }
+        player.transform.position = start.position;
     }
 }
