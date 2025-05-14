@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RoomEntryScript : MonoBehaviour
 {
-    public RoomScript roomManager;
+    [SerializeField] RoomScript roomManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +17,7 @@ public class RoomEntryScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && roomManager != null)
         {
         roomManager.SwitchRoom();
         }

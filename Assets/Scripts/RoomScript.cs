@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class RoomScript : MonoBehaviour
 {
-    public GameObject player;
-    public Transform start;
-    public List<RoomNumber> rooms;
+    [SerializeField] GameObject player;
+    
+    [SerializeField] GameObject[] startArray;
+   
+    [SerializeField] List<RoomNumber> rooms;
     private int currentRoomID = 1;
 
     void Start()
@@ -32,7 +34,14 @@ public class RoomScript : MonoBehaviour
         {
             nextRoom.gameObject.SetActive(true);
             currentRoomID = nextRoomID;
+            int startInt = rooms.IndexOf(nextRoom);
+       if (startInt >= 0 && startInt < startArray.Length)
+       {
+        player.transform.position = startArray[startInt].transform.position;
+       }
         }
-        player.transform.position = start.position;
+       
+
+        
     }
 }

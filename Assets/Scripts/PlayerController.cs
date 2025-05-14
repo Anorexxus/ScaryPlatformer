@@ -1,13 +1,12 @@
 using System.Collections;
 using NUnit.Framework.Interfaces;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 3.0f;
+    private float speed = 3.0f;
     private float jumpForce = 7.0f;
     
     public bool canJump = false;

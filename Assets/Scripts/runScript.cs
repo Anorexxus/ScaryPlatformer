@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class runScript : MonoBehaviour
 {
-    [SerializeField]private EnemyDarkScript EnemyDark;
+    private EnemyDarkScript EnemyDark;
     [SerializeField]private PlayerController Player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,9 +20,10 @@ public class runScript : MonoBehaviour
     {
         if (other.CompareTag("Flash"))
         {
+        EnemyDark = GetComponentInParent<EnemyDarkScript>();
         EnemyDark.target = other.gameObject;
         EnemyDark.see = false;
-        Debug.Log("Nigger not see");
+        
         }
      
     }

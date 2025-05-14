@@ -3,9 +3,8 @@ using UnityEngine;
 public class GateScript : MonoBehaviour
 {
     
-    private bool openGate = false;
+    [SerializeField] bool openGate = false;
     
-    public RoomScript roomManager;
     private int playerLayer;
     private int gateLayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
