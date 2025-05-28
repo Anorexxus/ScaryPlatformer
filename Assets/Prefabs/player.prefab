@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 2797408408498582354}
   - component: {fileID: 3755994613310895577}
   - component: {fileID: 6191234013917819460}
+  - component: {fileID: 8319828618744459354}
   m_Layer: 3
   m_Name: player
   m_TagString: Player
@@ -240,7 +241,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0426773a8723ebf4eb5cbe23a2fc5b9f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -315,7 +316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d4db2270161074991909a6e13c9691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   canJump: 0
   health: 10
   sprintTimer: 0
@@ -326,6 +326,19 @@ MonoBehaviour:
   lightFlash: {fileID: 1448505195714908661}
   polyCollFlash: {fileID: 2814640283814140311}
   staminaBar: {fileID: 0}
+--- !u!114 &8319828618744459354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4332073220792273067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c839ba5cf513cf4ebe458d1877aafe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadow: {fileID: 0}
 --- !u!1 &7030090465679099261
 GameObject:
   m_ObjectHideFlags: 0
