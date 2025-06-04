@@ -27,24 +27,8 @@ public class PlayerController : MonoBehaviour
     public Slider staminaBar;
     [SerializeField]
     private DeathScript DeathScript;
-
-    public bool canJump = false;
-    public bool resting = false;
-    private bool isFacingRight;
-
-    public float speed = 3.0f;
-    public float health = 10f;
-    public float sprintTimer = 0f;
-    public float sprintTimerMax = 5f;
-
-    public GameObject flashLight;
-    public Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-
-    private float timer;
-    private float timeDuration = 5f;
-    private float jumpForce = 7.0f;
     Vector2 movement;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
