@@ -4,6 +4,7 @@ using UnityEngine;
 public class RoomScript : MonoBehaviour
 {
     public GameObject player;
+    [SerializeField]
     public Transform start;
     public List<RoomNumber> rooms;
     private int currentRoomID = 1;

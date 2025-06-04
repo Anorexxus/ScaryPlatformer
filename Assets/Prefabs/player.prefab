@@ -219,7 +219,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2925139963359508438, guid: 4959f7a135fb4a94b9c8371834469c0c, type: 3}
+  m_Sprite: {fileID: -1325784959158839408, guid: 64759b7cbeb2592428749d743d375c19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -268,7 +268,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3, y: 1.5}
+    oldSize: {x: 0.526, y: 1.597}
     newSize: {x: 1.3, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -315,17 +315,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d4db2270161074991909a6e13c9691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  canJump: 0
-  health: 10
-  sprintTimer: 0
-  sprintTimerMax: 5
-  resting: 0
-  flashLight: {fileID: 3746583718709715537}
-  rb: {fileID: 3755994613310895577}
   lightFlash: {fileID: 1448505195714908661}
   polyCollFlash: {fileID: 2814640283814140311}
   staminaBar: {fileID: 0}
+  DeathScript: {fileID: 0}
+  canJump: 0
+  resting: 0
+  speed: 5
+  health: 10
+  sprintTimer: 0
+  sprintTimerMax: 5
+  flashLight: {fileID: 3746583718709715537}
+  rb: {fileID: 3755994613310895577}
 --- !u!1 &7030090465679099261
 GameObject:
   m_ObjectHideFlags: 0
