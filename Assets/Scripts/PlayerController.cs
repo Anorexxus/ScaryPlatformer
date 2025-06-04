@@ -6,6 +6,21 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    private float speed = 3.0f;
+    private float jumpForce = 7.0f;
+    
+    public bool canJump = false;
+    private bool isFacingRight;
+    public float health = 10f;
+    private SpriteRenderer spriteRenderer;
+    public float sprintTimer = 0f;
+    public float sprintTimerMax = 5f;
+    public bool resting = false;
+    public GameObject flashLight;
+    public Rigidbody2D rb;
+
+    private float timer;
+    private float timeDuration = 5f;
 
     public Light2D lightFlash;
     public PolygonCollider2D polyCollFlash;
@@ -115,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
 
         timer += Time.deltaTime;
-
+        
 
         if (canJump == true && Input.GetKeyDown(KeyCode.Space))
         {

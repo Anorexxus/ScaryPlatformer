@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class runScript : MonoBehaviour
 {
-    [SerializeField]private EnemyDarkScript EnemyDark;
+    private EnemyDarkScript EnemyDark;
     [SerializeField]private PlayerController Player;
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Flash"))
         {
+        EnemyDark = GetComponentInParent<EnemyDarkScript>();
         EnemyDark.target = other.gameObject;
         EnemyDark.see = false;
-        Debug.Log("Nigger not see");
+        
         }
      
     }

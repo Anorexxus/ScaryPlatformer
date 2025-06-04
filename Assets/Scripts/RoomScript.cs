@@ -7,6 +7,7 @@ public class RoomScript : MonoBehaviour
     [SerializeField]
     public Transform start;
     public List<RoomNumber> rooms;
+    [SerializeField] GameObject[] startArray;
     private int currentRoomID = 1;
 
     void Start()
@@ -33,7 +34,14 @@ public class RoomScript : MonoBehaviour
         {
             nextRoom.gameObject.SetActive(true);
             currentRoomID = nextRoomID;
+            int startInt = rooms.IndexOf(nextRoom);
+       if (startInt >= 0 && startInt < startArray.Length)
+       {
+        player.transform.position = startArray[startInt].transform.position;
+       }
         }
-        player.transform.position = start.position;
+       
+
+        
     }
 }
